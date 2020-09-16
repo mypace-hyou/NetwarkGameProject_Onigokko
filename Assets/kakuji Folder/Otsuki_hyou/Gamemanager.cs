@@ -39,6 +39,9 @@ public class Gamemanager : MonoBehaviour
 
     //鬼を決める
     public float oni_jb;
+    public float onijb_ch;
+
+    public static int DemonPlayer;
 
     //鬼かどうかの判定
     public bool oni_1 = false;
@@ -103,6 +106,7 @@ public class Gamemanager : MonoBehaviour
         }
         if (GameSchedule == 2)//プレイ
         {
+            Cheng_Oni();
             luckText2.gameObject.SetActive(false);
             luckText3.gameObject.SetActive(true);
             luckText.text = "プレイ中"; 
@@ -123,22 +127,24 @@ public class Gamemanager : MonoBehaviour
             luckText.text = "終了";
             if (Schedulech_1 == true)
             {
+                ch_oni();
                 GameSchedule += 1;
             }
         }
         if (GameSchedule == 4)//待機
         {
-            button_2.SetActive(false);
-            button_3.SetActive(true);
-            luckText.text = "次のゲームまで待機";
-            Schedulech_0 = false;
-            Schedulech_1 = false;
-            EscapeTime = EscapeTimeIntarval;
-            PlayTime = PlayTimeIntarval;
-            if (Schedulech_2 == true)
-            {
-                GameSchedule = 0;
-            }
+            SceneManager.LoadScene("sceneCheng");
+            //button_2.SetActive(false);
+            //button_3.SetActive(true);
+            //luckText.text = "次のゲームまで待機";
+            //Schedulech_0 = false;
+            //Schedulech_1 = false;
+            //EscapeTime = EscapeTimeIntarval;
+            //PlayTime = PlayTimeIntarval;
+            //if (Schedulech_2 == true)
+            //{
+            //    GameSchedule = 0;
+            //}
         }
     }
     public void onbotton_1()
@@ -284,6 +290,283 @@ public class Gamemanager : MonoBehaviour
         }
         if (oni_jb == 10)
         {
+            oni_10 = true;
+            Position_1.text = "人";
+            Position_2.text = "人";
+            Position_3.text = "人";
+            Position_4.text = "人";
+            Position_5.text = "人";
+            Position_6.text = "人";
+            Position_7.text = "人";
+            Position_8.text = "人";
+            Position_9.text = "人";
+            Position_10.text = "鬼";
+        }
+    }
+    public void ch_oni()
+    {
+        if (onijb_ch == 1)
+        {
+            DemonPlayer = 1;
+        }
+        if (onijb_ch == 2)
+        {
+            DemonPlayer = 2;
+        }
+        if (onijb_ch == 3)
+        {
+            DemonPlayer = 3;
+        }
+        if (onijb_ch == 4)
+        {
+            DemonPlayer = 4;
+        }
+        if (onijb_ch == 5)
+        {
+            DemonPlayer = 5;
+        }
+        if (onijb_ch == 6)
+        {
+            DemonPlayer = 6;
+        }
+        if (onijb_ch == 7)
+        {
+            DemonPlayer = 7;
+        }
+        if (onijb_ch == 8)
+        {
+            DemonPlayer = 8;
+        }
+        if (onijb_ch == 9)
+        {
+            DemonPlayer = 9;
+        }
+        if (onijb_ch == 10)
+        {
+            DemonPlayer = 10;
+        }
+    }
+    public void Cheng_Oni()
+    {
+        onijb_ch = Random.Range(1, 11);
+        if (onijb_ch == 1)
+        {
+            oni_1 = true;
+            oni_2 = false;
+            oni_3 = false;
+            oni_4 = false;
+            oni_5 = false;
+            oni_6 = false;
+            oni_7 = false;
+            oni_8 = false;
+            oni_9 = false;
+            oni_10 = false;
+            Position_1.text = "鬼";
+            Position_2.text = "人";
+            Position_3.text = "人";
+            Position_4.text = "人";
+            Position_5.text = "人";
+            Position_6.text = "人";
+            Position_7.text = "人";
+            Position_8.text = "人";
+            Position_9.text = "人";
+            Position_10.text = "人";
+        }
+        if (onijb_ch == 2)
+        {
+            oni_1 = false;
+            oni_2 = true;
+            oni_3 = false;
+            oni_4 = false;
+            oni_5 = false;
+            oni_6 = false;
+            oni_7 = false;
+            oni_8 = false;
+            oni_9 = false;
+            oni_10 = false;
+            Position_1.text = "人";
+            Position_2.text = "鬼";
+            Position_3.text = "人";
+            Position_4.text = "人";
+            Position_5.text = "人";
+            Position_6.text = "人";
+            Position_7.text = "人";
+            Position_8.text = "人";
+            Position_9.text = "人";
+            Position_10.text = "人";
+        }
+        if (onijb_ch == 3)
+        {
+            oni_1 = false;
+            oni_2 = false;
+            oni_3 = true;
+            oni_4 = false;
+            oni_5 = false;
+            oni_6 = false;
+            oni_7 = false;
+            oni_8 = false;
+            oni_9 = false;
+            oni_10 = false;
+            Position_1.text = "人";
+            Position_2.text = "人";
+            Position_3.text = "鬼";
+            Position_4.text = "人";
+            Position_5.text = "人";
+            Position_6.text = "人";
+            Position_7.text = "人";
+            Position_8.text = "人";
+            Position_9.text = "人";
+            Position_10.text = "人";
+        }
+        if (onijb_ch == 4)
+        {
+            oni_1 = false;
+            oni_2 = false;
+            oni_3 = false;
+            oni_4 = true;
+            oni_5 = false;
+            oni_6 = false;
+            oni_7 = false;
+            oni_8 = false;
+            oni_9 = false;
+            oni_10 = false;
+            Position_1.text = "人";
+            Position_2.text = "人";
+            Position_3.text = "人";
+            Position_4.text = "鬼";
+            Position_5.text = "人";
+            Position_6.text = "人";
+            Position_7.text = "人";
+            Position_8.text = "人";
+            Position_9.text = "人";
+            Position_10.text = "人";
+        }
+        if (onijb_ch == 5)
+        {
+            oni_1 = false;
+            oni_2 = false;
+            oni_3 = false;
+            oni_4 = false;
+            oni_5 = true;
+            oni_6 = false;
+            oni_7 = false;
+            oni_8 = false;
+            oni_9 = false;
+            oni_10 = false;
+            Position_1.text = "人";
+            Position_2.text = "人";
+            Position_3.text = "人";
+            Position_4.text = "人";
+            Position_5.text = "鬼";
+            Position_6.text = "人";
+            Position_7.text = "人";
+            Position_8.text = "人";
+            Position_9.text = "人";
+            Position_10.text = "人";
+        }
+        if (onijb_ch == 6)
+        {
+            oni_1 = false;
+            oni_2 = false;
+            oni_3 = false;
+            oni_4 = false;
+            oni_5 = false;
+            oni_6 = true;
+            oni_7 = false;
+            oni_8 = false;
+            oni_9 = false;
+            oni_10 = false;
+            Position_1.text = "人";
+            Position_2.text = "人";
+            Position_3.text = "人";
+            Position_4.text = "人";
+            Position_5.text = "人";
+            Position_6.text = "鬼";
+            Position_7.text = "人";
+            Position_8.text = "人";
+            Position_9.text = "人";
+            Position_10.text = "人";
+        }
+        if (onijb_ch == 7)
+        {
+            oni_1 = false;
+            oni_2 = false;
+            oni_3 = false;
+            oni_4 = false;
+            oni_5 = false;
+            oni_6 = false;
+            oni_7 = true;
+            oni_8 = false;
+            oni_9 = false;
+            oni_10 = false;
+            Position_1.text = "人";
+            Position_2.text = "人";
+            Position_3.text = "人";
+            Position_4.text = "人";
+            Position_5.text = "人";
+            Position_6.text = "人";
+            Position_7.text = "鬼";
+            Position_8.text = "人";
+            Position_9.text = "人";
+            Position_10.text = "人";
+        }
+        if (onijb_ch == 8)
+        {
+            oni_1 = false;
+            oni_2 = false;
+            oni_3 = false;
+            oni_4 = false;
+            oni_5 = false;
+            oni_6 = false;
+            oni_7 = false;
+            oni_8 = true;
+            oni_9 = false;
+            oni_10 = false;
+            Position_1.text = "人";
+            Position_2.text = "人";
+            Position_3.text = "人";
+            Position_4.text = "人";
+            Position_5.text = "人";
+            Position_6.text = "人";
+            Position_7.text = "人";
+            Position_8.text = "鬼";
+            Position_9.text = "人";
+            Position_10.text = "人";
+        }
+        if (onijb_ch == 9)
+        {
+            oni_1 = false;
+            oni_2 = false;
+            oni_3 = false;
+            oni_4 = false;
+            oni_5 = false;
+            oni_6 = false;
+            oni_7 = false;
+            oni_8 = false;
+            oni_9 = true;
+            oni_10 = false;
+            Position_1.text = "人";
+            Position_2.text = "人";
+            Position_3.text = "人";
+            Position_4.text = "人";
+            Position_5.text = "人";
+            Position_6.text = "人";
+            Position_7.text = "人";
+            Position_8.text = "人";
+            Position_9.text = "鬼";
+            Position_10.text = "人";
+        }
+        if (onijb_ch == 10)
+        {
+            oni_1 = false;
+            oni_2 = false;
+            oni_3 = false;
+            oni_4 = false;
+            oni_5 = false;
+            oni_6 = false;
+            oni_7 = false;
+            oni_8 = false;
+            oni_9 = false;
             oni_10 = true;
             Position_1.text = "人";
             Position_2.text = "人";
