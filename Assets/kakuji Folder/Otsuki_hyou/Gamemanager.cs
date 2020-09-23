@@ -303,7 +303,19 @@ public class Gamemanager : MonoBehaviour
             Position_10.text = "鬼";
         }
     }
-    public void ch_oni()
+    public void ch_Titol()
+    {
+        SceneManager.LoadScene("TitolScene");
+    }
+    public void ch_Result()
+    {
+        SceneManager.LoadScene("Result");
+    }
+    public void ch_play()
+    {
+        SceneManager.LoadScene("PlayScene");
+    }
+    public void ch_oni()//消す
     {
         if (onijb_ch == 1)
         {
