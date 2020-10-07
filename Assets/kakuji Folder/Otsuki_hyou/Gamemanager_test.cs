@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Gamemanager : MonoBehaviour
+public class Gamemanager_test : MonoBehaviour
 {
-    public static Gamemanager instanc { get; private set; }
+    public static Gamemanager_test instanc { get; private set; }
     
     //大まかな流れを管理
     public float GameSchedule;

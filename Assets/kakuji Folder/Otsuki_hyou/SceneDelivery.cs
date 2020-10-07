@@ -19,7 +19,7 @@ public class SceneDelivery : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        demonPlayer = Gamemanager.DemonPlayer;
+        demonPlayer = Gamemanager_test.DemonPlayer;
 
         if (demonPlayer == 1)
         {
