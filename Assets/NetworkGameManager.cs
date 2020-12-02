@@ -5,6 +5,7 @@ using UnityEngine;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
+using System;
 
 public class NetworkGameManager : MonoBehaviourPunCallbacks // Photon Realtime 用のクラスを継承する
 {
@@ -115,6 +116,10 @@ public class NetworkGameManager : MonoBehaviourPunCallbacks // Photon Realtime �
         {
             Debug.Log("Closing Room");
             PhotonNetwork.CurrentRoom.IsOpen = false;
+        }
+        if (PhotonNetwork.CurrentRoom.IsOpen==false)
+        {
+            actorNumber = UnityEngine.Random.Range(1, 10);
         }
     }
 

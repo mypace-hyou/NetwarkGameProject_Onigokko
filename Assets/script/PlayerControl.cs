@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class PlayerControl : MonoBehaviour
 {
     public static PlayerControl inctanc { get; private set; }
-    public float MyNumber;
+    public int MyNumber;
     // Start is called before the first frame update
     void Start()
     {
-        MyNumber = PhotonNetwork.LocalPlayer.ActorNumber;
         Debug.Log(MyNumber);
+        Gamemanager.instanc.Nember += 1;
     }
 
     // Update is called once per frame

@@ -12,6 +12,7 @@ public class Gamemanager : MonoBehaviour
 
     //大まかな流れを管理
     public float GameSchedule;
+    public float Nember;
 
     //各自判定
     public bool Schedulech_0 = false;
@@ -27,17 +28,6 @@ public class Gamemanager : MonoBehaviour
     //インターバル
     public float EscapeTimeIntarval = 30;
     public float PlayTimeIntarval = 40;
-
-    ////確認
-    //public Text luckText;
-    //public Text luckText2;
-    //public Text luckText3;
-
-    ////テストプレイ用
-    //public GameObject button_1;
-    //public GameObject button_2;
-    //public GameObject button_3;
-
 
     //鬼を決める
     public float oni_jb;
@@ -57,17 +47,17 @@ public class Gamemanager : MonoBehaviour
     public bool oni_9 = false;
     public bool oni_10 = false;
 
-    ////役職確認
-    //public Text Position_1;
-    //public Text Position_2;
-    //public Text Position_3;
-    //public Text Position_4;
-    //public Text Position_5;
-    //public Text Position_6;
-    //public Text Position_7;
-    //public Text Position_8;
-    //public Text Position_9;
-    //public Text Position_10;
+    //入った判定
+    public bool Login_1 = false;
+    public bool Login_2 = false;
+    public bool Login_3 = false;
+    public bool Login_4 = false;
+    public bool Login_5 = false;
+    public bool Login_6 = false;
+    public bool Login_7 = false;
+    public bool Login_8 = false;
+    public bool Login_9 = false;
+    public bool Login_10 = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,14 +67,13 @@ public class Gamemanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Nember == 10)
+        {
+            onbotton_1();
+        }
         if (GameSchedule == 0)//人が集まるかどうか
         {
-            //luckText3.gameObject.SetActive(false);
-            //luckText2.gameObject.SetActive(true);
-            //button_3.SetActive(false);
-            //button_1.SetActive(true);
             Schedulech_2 = false;
-            //luckText.text = "人が集まった";
             if (Schedulech_0 == true)
             {
                 GameSchedule += 1;
@@ -92,13 +81,9 @@ public class Gamemanager : MonoBehaviour
         }
         if (GameSchedule == 1)//逃げる
         {
-            //button_1.SetActive(false);
-            //luckText.text = "逃げて";
             EscapeTime -= Time.deltaTime;
-            //luckText2.text = EscapeTime.ToString("F1");
             if (EscapeTime <= 10)//役職発表
             {
-                //luckText.text = "貴方の役職はです";
                 first_Oni();
             }
             if (EscapeTime <= 0)
@@ -109,11 +94,7 @@ public class Gamemanager : MonoBehaviour
         if (GameSchedule == 2)//プレイ
         {
             Cheng_Oni();
-            //luckText2.gameObject.SetActive(false);
-            //luckText3.gameObject.SetActive(true);
-            //luckText.text = "プレイ中";
             PlayTime -= Time.deltaTime;
-            //luckText3.text = PlayTime.ToString("F1");
             if (PlayTime <= 30)
             {
                 //luckText3.text = "残り時間少し";
@@ -125,8 +106,6 @@ public class Gamemanager : MonoBehaviour
         }
         if (GameSchedule == 3)//終了
         {
-            //button_2.SetActive(true);
-            //luckText.text = "終了";
             if (Schedulech_1 == true)
             {
                 ch_oni();
@@ -136,17 +115,6 @@ public class Gamemanager : MonoBehaviour
         if (GameSchedule == 4)//待機
         {
             SceneManager.LoadScene("sceneCheng");
-            //button_2.SetActive(false);
-            //button_3.SetActive(true);
-            //luckText.text = "次のゲームまで待機";
-            //Schedulech_0 = false;
-            //Schedulech_1 = false;
-            //EscapeTime = EscapeTimeIntarval;
-            //PlayTime = PlayTimeIntarval;
-            //if (Schedulech_2 == true)
-            //{
-            //    GameSchedule = 0;
-            //}
         }
     }
     public void onbotton_1()
@@ -167,142 +135,42 @@ public class Gamemanager : MonoBehaviour
         if (oni_jb == 1)
         {
             oni_1 = true;
-            //Position_1.text = "鬼";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (oni_jb == 2)
         {
             oni_2 = true;
-            //Position_1.text = "人";
-            //Position_2.text = "鬼";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (oni_jb == 3)
         {
             oni_3 = true;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "鬼";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (oni_jb == 4)
         {
             oni_4 = true;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "鬼";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (oni_jb == 5)
         {
             oni_5 = true;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "鬼";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (oni_jb == 6)
         {
             oni_6 = true;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "鬼";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (oni_jb == 7)
         {
             oni_7 = true;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "鬼";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (oni_jb == 8)
         {
             oni_8 = true;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "鬼";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (oni_jb == 9)
         {
             oni_9 = true;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "鬼";
-            //Position_10.text = "人";
         }
         if (oni_jb == 10)
         {
             oni_10 = true;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "鬼";
         }
     }
     public void ch_Titol()
@@ -375,16 +243,6 @@ public class Gamemanager : MonoBehaviour
             oni_8 = false;
             oni_9 = false;
             oni_10 = false;
-            //Position_1.text = "鬼";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (onijb_ch == 2)
         {
@@ -398,16 +256,6 @@ public class Gamemanager : MonoBehaviour
             oni_8 = false;
             oni_9 = false;
             oni_10 = false;
-            //Position_1.text = "人";
-            //Position_2.text = "鬼";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (onijb_ch == 3)
         {
@@ -421,16 +269,6 @@ public class Gamemanager : MonoBehaviour
             oni_8 = false;
             oni_9 = false;
             oni_10 = false;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "鬼";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (onijb_ch == 4)
         {
@@ -444,16 +282,6 @@ public class Gamemanager : MonoBehaviour
             oni_8 = false;
             oni_9 = false;
             oni_10 = false;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "鬼";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (onijb_ch == 5)
         {
@@ -467,16 +295,6 @@ public class Gamemanager : MonoBehaviour
             oni_8 = false;
             oni_9 = false;
             oni_10 = false;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "鬼";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (onijb_ch == 6)
         {
@@ -490,16 +308,6 @@ public class Gamemanager : MonoBehaviour
             oni_8 = false;
             oni_9 = false;
             oni_10 = false;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "鬼";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (onijb_ch == 7)
         {
@@ -513,16 +321,6 @@ public class Gamemanager : MonoBehaviour
             oni_8 = false;
             oni_9 = false;
             oni_10 = false;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "鬼";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (onijb_ch == 8)
         {
@@ -536,16 +334,6 @@ public class Gamemanager : MonoBehaviour
             oni_8 = true;
             oni_9 = false;
             oni_10 = false;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "鬼";
-            //Position_9.text = "人";
-            //Position_10.text = "人";
         }
         if (onijb_ch == 9)
         {
@@ -559,16 +347,6 @@ public class Gamemanager : MonoBehaviour
             oni_8 = false;
             oni_9 = true;
             oni_10 = false;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "鬼";
-            //Position_10.text = "人";
         }
         if (onijb_ch == 10)
         {
@@ -582,16 +360,6 @@ public class Gamemanager : MonoBehaviour
             oni_8 = false;
             oni_9 = false;
             oni_10 = true;
-            //Position_1.text = "人";
-            //Position_2.text = "人";
-            //Position_3.text = "人";
-            //Position_4.text = "人";
-            //Position_5.text = "人";
-            //Position_6.text = "人";
-            //Position_7.text = "人";
-            //Position_8.text = "人";
-            //Position_9.text = "人";
-            //Position_10.text = "鬼";
         }
     }
 }
